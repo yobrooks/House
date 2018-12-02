@@ -14,6 +14,7 @@ void defineBaseHouse(base *box)
 	std::cout << "ABOUT TO DEFINE VERTS" << std::endl;
 	
 	//define the front box
+	//ACTUALLY DREW BOTTOM
 	box[0].vert[0].x = -1.0;
 	box[0].vert[0].y = -1.0;
 	box[0].vert[0].z = 0.0;
@@ -32,6 +33,7 @@ void defineBaseHouse(base *box)
         box[0].vert[3].w = 1.0;
 
 	//define the back side
+	//ACTUALLY DREW TOP
 	box[1].vert[0].x = -1.0;
 	box[1].vert[0].y = -1.0;
 	box[1].vert[0].z = -1.0;
@@ -50,6 +52,7 @@ void defineBaseHouse(base *box)
         box[1].vert[3].w = 1.0;
 
 	//define the right side
+	//ACTUALLY DREW FRONT
 	box[2].vert[0].x = 1.0;
         box[2].vert[0].y = -1.0;
         box[2].vert[0].z = 0.0;
@@ -68,6 +71,7 @@ void defineBaseHouse(base *box)
         box[2].vert[3].w = 1.0;
 
 	//define the left side
+	//ACTUALLY DREW BACK
 	box[3].vert[0].x = -1.0;
         box[3].vert[0].y = -1.0;
         box[3].vert[0].z = -1.0;
@@ -78,7 +82,7 @@ void defineBaseHouse(base *box)
         box[3].vert[1].w = 1.0;
         box[3].vert[2].x = -1.0;
         box[3].vert[2].y = 1.0;
-        box[3].vert[2].z = 01.0;
+        box[3].vert[2].z = 0.0;
         box[3].vert[2].w = 1.0;
         box[3].vert[3].x = -1.0;
         box[3].vert[3].y = -1.0;
@@ -121,10 +125,12 @@ void defineBaseHouse(base *box)
         box[5].vert[3].z = -1.0;
         box[5].vert[3].w = 1.0;
 	
-	std::cout << "Vertices Made " << std::endl;
-
 }
 
+void defineTriangle()
+{
+
+}
 void drawBaseHouse(base *myBase)
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
