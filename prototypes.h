@@ -11,6 +11,8 @@ void processDisplayMenu(int );
 void processMainMenu(int );
 void createMenu(void);
 void mouse(int , int ,int , int );
+void specialKeyboard(int ,int ,int );
+void normalKeyboard(unsigned char , int , int );
 void reshape(int , int );
 void display(void);
 

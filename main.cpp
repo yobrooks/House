@@ -14,6 +14,10 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(0, 0);
 	glutCreateWindow("3D House");
 	myInit();
+	createMenu();
+	glutMouseFunc(mouse);
+	glutKeyboardFunc(normalKeyboard);
+	glutSpecialFunc(specialKeyboard);
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);
 	glutMainLoop();

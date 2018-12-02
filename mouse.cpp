@@ -10,10 +10,15 @@ void mouse(int button, int state, int x, int y)
 {
 	y = WINDOW_HEIGHT - y;
 	
-/*	if(button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) //must change to middle
+	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		std::cout << "MENU" << std::endl;
-	}*/
+		std::cout << "left pressed" << std::endl;
+	}
+
+	else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
+	{
+		std::cout << "right pressed" << std::endl;
+	}
 }
 
 #endif
