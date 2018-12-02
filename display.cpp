@@ -13,7 +13,7 @@ void display(void)
 //	glClear(GL_COLOR_BUFFER_BIT);
 //	glColor3f(1.0, 1.0, 1.0);
 	
-	base hbase[6];
+	base hbase[7];
 	
 	
 	
@@ -34,6 +34,8 @@ void display(void)
 	drawBaseHouse(&hbase[0]);
 
 	std::cout << "HOUSE DRAWN" << std::endl;
+
+//	createMenu();
 	glFlush();	
 }
 

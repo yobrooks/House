@@ -83,8 +83,8 @@ void createMenu(void)
 	glutAddSubMenu("View Options", viewMenu);
 	glutAddMenuEntry("Exit Program", EXIT);
 
-	glutAttachMenu(GLUT_RIGHT_BUTTON); //change to middle
-	//glutDetachMenu(GLUT_RIGHT_BUTTON); //change to middle
+	glutAttachMenu(GLUT_MIDDLE_BUTTON); //change to middle
+	glutDetachMenu(GLUT_MIDDLE_BUTTON); //change to middle
 }
 
 #endif

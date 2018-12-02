@@ -123,12 +123,43 @@ void defineBaseHouse(base *box)
         box[5].vert[3].x = 1.0;
         box[5].vert[3].y = -1.0;
         box[5].vert[3].z = -1.0;
-        box[5].vert[3].w = 1.0;
-	
+        box[5].vert[3].w = 1.0;	
+
+
+	//START TRIANGLES HERE
+/*	box[6].vert[0].x = -1.0;
+        box[6].vert[0].y = -1.0;
+        box[6].vert[0].z = -1.0;
+        box[6].vert[0].w = 1.0;
+        box[6].vert[1].x = -1.0;
+        box[6].vert[1].y = 1.0;
+        box[6].vert[1].z = -1.0;
+        box[6].vert[1].w = 1.0;
+        box[6].vert[2].x = 1.0;
+        box[6].vert[2].y = 1.0;
+        box[6].vert[2].z = 1.0;
+        box[6].vert[2].w = 1.0;
+        box[6].vert[3].x = 1.0;
+        box[6].vert[3].y = -1.0;
+        box[6].vert[3].z = 1.0;
+        box[6].vert[3].w = 1.0;*/
 }
 
-void defineTriangle()
+void defineRoofHouse(base *top)
 {
+/*	top[0].vert[0]
+	top[0].vert[0]
+	top[0].vert[0]
+	top[0].vert[0]
+	top[0].vert[1]
+	top[0].vert[1]
+	top[0].vert[1]
+	top[0].vert[1]
+	top[0].vert[2]
+	top[0].vert[2]
+	top[0].vert[2]
+	top[0].vert[2]
+*/
 
 }
 void drawBaseHouse(base *myBase)
