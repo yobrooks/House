@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 	glutCreateWindow("3D House");
 	myInit();
 	glutDisplayFunc(display);
-	//glutReshapeFunc(reshape);
+	glutReshapeFunc(reshape);
 	glutMainLoop();
 }
 
