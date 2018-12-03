@@ -1,7 +1,7 @@
 CXX = g++
 LDLIBS =  -lglut -lGL -lGLU -lm
 HEADERS = openGl.h structs.h globals.h constants.h prototypes.h
-OBJS = myInit.o buildHouse.o reshape.o menu.o keyboard.o mouse.o display.o  
+OBJS = myInit.o buildHouse.o reshape.o menuOptionFuncs.o menu.o keyboard.o mouse.o display.o  
 
 debug ?= n
 ifeq ($(debug), y)
@@ -27,6 +27,9 @@ buildHouse.o : buildHouse.cpp $(HEADERS)
 
 reshape.o : reshape.cpp $(HEADERS)
 	$(CXX) $(CFLAGS) reshape.cpp -c
+
+menuOptionFuncs.o : menuOptionFuncs.cpp $(HEADERS)
+	$(CXX) $(CFLAGS) menuOptionFuncs.cpp -c
 
 menu.o : menu.cpp $(HEADERS)
 	$(CXX) $(CFLAGS) menu.cpp -c

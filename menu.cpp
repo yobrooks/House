@@ -14,7 +14,10 @@
 #define EXIT 9
 
 #include "openGl.h"
+#include "globals.h"
+//#include "constants.h"
 #include <iostream>
+
 void processViewMenu(int vchoice)
 {
 	switch (vchoice) 
@@ -36,13 +39,13 @@ void processDisplayMenu(int dchoice)
 	switch (dchoice)
 	{
 		case FILLED : 
-				 std::cout << "Filled Shape" << std::endl; break;
+				  IS_WIREFRAME = false;  break;
 
 		case WIREFRAME : 
-				 std::cout << "WireFrame Shape" << std::endl; break;
+				  IS_WIREFRAME = true;  break;
 	
 		case DISPLAY_AXES:
-				 std::cout << "Axes" << std::endl; break;
+				 std::cout << "Axes" << std::endl; AXES_DRAWN = true; break;
 
 		case HELLO_WORLD: 
 				 std::cout << "Hello world sign" << std::endl; break;
@@ -61,7 +64,7 @@ void processMainMenu(int mchoice)
 	}
 }
 
-
+//DRAWS SHAPE OVER AND OVER WHEN INTERACTING WITH MENU
 void createMenu(void)
 {
 	int mainMenu, displayMenu, viewMenu;
@@ -83,9 +86,11 @@ void createMenu(void)
 	glutAddSubMenu("View Options", viewMenu);
 	glutAddMenuEntry("Exit Program", EXIT);
 
-	glutAttachMenu(GLUT_MIDDLE_BUTTON); //change to middle
+	glutAttachMenu(GLUT_RIGHT_BUTTON); //change to middle
 	glutDetachMenu(GLUT_MIDDLE_BUTTON); //change to middle
 }
+
+
 
 #endif
 

@@ -5,7 +5,9 @@ extern const int WINDOW_HEIGHT;
 extern const int WINDOW_WIDTH;
 extern const int VIEWPORT_MIN;
 extern const int VIEWPORT_MAX;
-
+extern int TYPE_VIEW; 
+extern  bool IS_WIREFRAME;
+extern  bool AXES_DRAWN;
 #endif
 // use extern here -- then we include this header in each code piece that
 // // needs access to the variables.   Declare the actual variables in exactly

@@ -1,7 +1,7 @@
 #ifndef MENU_OPTIONS
 #define MENU_OPTIONS
 
-#include "opengl.h"
+#include "openGl.h"
 #include "structs.h"
 
 void defineColors(base *shape)
@@ -34,6 +34,7 @@ void defineColors(base *shape)
 
 void drawFilledInHouse(base *shape)
 {
+
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	
 	glPushMatrix();
@@ -43,7 +44,7 @@ void drawFilledInHouse(base *shape)
 		glColor3f(shape[i].myColor.red, shape[i].myColor.green, shape[i].myColor.blue);
 		glBegin(GL_POLYGON);
 
-		for (j=0; j<4; j++)
+		for (int j=0; j<4; j++)
         	{
         	    glVertex3f(shape[i].vert[j].x,shape[i].vert[j].y, shape[i].vert[j].z);
 		}
@@ -55,21 +56,32 @@ void drawFilledInHouse(base *shape)
 }
 
 
-void drawAxes()
+void drawAxes(float length)
 {
 	glPointSize(1.0);
-   glBegin(GL_LINES);
-     glVertex3i(0,length,0);
-     glVertex3i(0,-length,0);
-   glEnd();
-   glBegin(GL_LINES);
-     glVertex3i(length,0,0);
-     glVertex3i(-length,0,0);
-   glEnd();
-   glBegin(GL_LINES);
-     glVertex3i(0,0,length);
-     glVertex3i(0,0,-length);
-   glEnd();
+ //	glColor3f(1.0, 1.0, 1.0);
+	
+	glPushMatrix();
+
+	glColor3f(1.0, 0.0, 0.0);
+  	glBegin(GL_LINES); //x axis
+     		glVertex3f(length, 0.0, 0.0);
+     		glVertex3f(-length, 0.0, 0.0);
+   	glEnd();
+
+	glColor3f(0.0, 1.0, 0.0);
+   	glBegin(GL_LINES); //y axis
+   	  	glVertex3f(0.0, length, 0.0);
+     	  	glVertex3f(0.0, -length, 0.0);
+   	glEnd();
+
+	glColor3f(0.0, 0.0, 1.0);
+   	glBegin(GL_LINES); //z axis
+     		glVertex3i(0.0, 0.0, length);
+	        glVertex3i(0.0, 0.0, -length);
+        glEnd();
+
+	glPopMatrix();
 }
-}
+
 #endif
