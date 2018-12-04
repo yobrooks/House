@@ -4,7 +4,7 @@
 #include "openGl.h"
 #include "structs.h"
 
-void defineColors(base *shape)
+void defineColors(base *shape, roof *trishape)
 {
 	shape[0].myColor.red = 0.0;
 	shape[0].myColor.green = 0.5;
@@ -30,9 +30,28 @@ void defineColors(base *shape)
         shape[5].myColor.green = 0.0;
         shape[5].myColor.blue = 1.0;
 	
+	trishape[0].myColor.red = 0.5;
+	trishape[0].myColor.green = 0.5;
+	trishape[0].myColor.blue = 0.5;
+
+	
+        trishape[1].myColor.red = 0.5;
+        trishape[1].myColor.green = 0.5;
+        trishape[1].myColor.blue = 0.5;
+
+
+        trishape[2].myColor.red = 0.5;
+        trishape[2].myColor.green = 0.5;
+        trishape[2].myColor.blue = 0.5;
+
+
+        trishape[3].myColor.red = 0.5;
+        trishape[3].myColor.green = 0.5;
+        trishape[3].myColor.blue = 0.5;
+
 }
 
-void drawFilledInHouse(base *shape)
+void drawFilledInHouse(base *shape, roof *trishape)
 {
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -50,6 +69,20 @@ void drawFilledInHouse(base *shape)
 		}
         	
        		 glEnd();	
+	}
+
+	for(int i = 0; i < 4; i++)
+	{
+		glColor3f(trishape[i].myColor.red, trishape[i].myColor.green, trishape[i].myColor.blue);
+                glBegin(GL_TRIANGLES);
+
+                for (int j=0; j<3; j++)
+                {
+                    glVertex3f(trishape[i].vert[j].x, trishape[i].vert[j].y, trishape[i].vert[j].z);
+                }
+
+                 glEnd();
+
 	}
 	
 	glPopMatrix();

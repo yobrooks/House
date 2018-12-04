@@ -5,13 +5,14 @@
 
 void myInit(void);
 void defineBaseHouse(struct base*);
-void drawBaseHouse(struct base*);
+void defineRoofHouse(struct roof*);
+void drawBaseHouse(struct base*, struct roof*);
 void processViewMenu(int );
 void processDisplayMenu(int );
 void processMainMenu(int );
 void createMenu(void);
-void defineColors(struct base*);
-void drawFilledInHouse(struct base*);
+void defineColors(struct base*, struct roof*);
+void drawFilledInHouse(struct base*, struct roof*);
 void drawAxes(float );
 void animateHouse();
 void spinDisplay();

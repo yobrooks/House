@@ -26,21 +26,28 @@ void display(void)
 //	glColor3f(1.0, 1.0, 1.0);
 	
 	base hbase[6];
-	
+	roof hroof[4];
 	
 	
 	defineBaseHouse(&hbase[0]);
-	defineColors(&hbase[0]);
+	defineRoofHouse(&hroof[0]);
+	defineColors(&hbase[0], &hroof[0]);
 	
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(0.0, 1.0, 0.0);
 	
+	glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        gluPerspective(67.4, 1.0, 1.5, 20.0);
+//        glMatrixMode(GL_MODELVIEW);
+
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	
+
 	gluLookAt (6.0, 5.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
 	
-	findView();
+	//findView();
 
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -48,11 +55,11 @@ void display(void)
 	animateHouse();
 
 	if(IS_WIREFRAME == true){
-		drawBaseHouse(&hbase[0]);
+		drawBaseHouse(&hbase[0], &hroof[0]);
 	}
 
 	else{
-		drawFilledInHouse(&hbase[0]);
+		drawFilledInHouse(&hbase[0], &hroof[0]);
 	}
 
 	glPopMatrix();
