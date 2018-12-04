@@ -23,15 +23,16 @@ void processViewMenu(int vchoice)
 	switch (vchoice) 
 	{
 		case ORTHO : 
-				std::cout << "Orthographic View" << std::endl; break;
+				TYPE_VIEW = 2;  break;
 
 		case PERSPECTIVE : 
-					 std::cout << "Perspective View" << std::endl; break;
+				TYPE_VIEW = 1; break;
 
 		case CUSTOM : 
-				 std::cout << "Custom View" << std::endl; break;
+				 TYPE_VIEW =3; break;
 	}	
-				
+	
+	glutPostRedisplay();			
 }
 
 void processDisplayMenu(int dchoice)
@@ -45,7 +46,7 @@ void processDisplayMenu(int dchoice)
 				  IS_WIREFRAME = true;  break;
 	
 		case DISPLAY_AXES:
-				 std::cout << "Axes" << std::endl; AXES_DRAWN = true; break;
+				  AXES_DRAWN = true; break;
 
 		case HELLO_WORLD: 
 				 std::cout << "Hello world sign" << std::endl; break;

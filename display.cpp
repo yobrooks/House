@@ -9,6 +9,16 @@
 #include <vector>
 #include <iostream>
 
+
+void animateHouse()
+{
+	glPushMatrix();
+	glTranslatef(0.0, 0.0, 0.0);
+	glRotatef(X_SPIN, 1.0, 0.0, 0.0);
+	glRotatef(Y_SPIN, 0.0, 1.0, 0.0);
+	glRotatef(Z_SPIN, 0.0, 0.0, 1.0);
+}
+
 void display(void)
 {
 	//draw viewport window 
@@ -27,12 +37,16 @@ void display(void)
 	
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
+	
 	gluLookAt (6.0, 5.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
 	
+	findView();
+
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
+	animateHouse();
+
 	if(IS_WIREFRAME == true){
 		drawBaseHouse(&hbase[0]);
 	}
@@ -41,11 +55,13 @@ void display(void)
 		drawFilledInHouse(&hbase[0]);
 	}
 
+	glPopMatrix();
+
 	if(AXES_DRAWN == true)
 	{
 		drawAxes(10.0);
 	}
-	
+
 	glFlush();	
 }
 
