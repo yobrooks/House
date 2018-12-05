@@ -14,9 +14,9 @@ void animateHouse()
 {
 	glPushMatrix();
 	glTranslatef(0.0, 0.0, 0.0);
+	glRotatef(Z_SPIN, 0.0, 0.0, 1.0);
 	glRotatef(X_SPIN, 1.0, 0.0, 0.0);
 	glRotatef(Y_SPIN, 0.0, 1.0, 0.0);
-	glRotatef(Z_SPIN, 0.0, 0.0, 1.0);
 }
 
 void display(void)
@@ -35,26 +35,22 @@ void display(void)
 	
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(0.0, 1.0, 0.0);
-	
-	glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        gluPerspective(67.4, 1.0, 1.5, 20.0);
-//        glMatrixMode(GL_MODELVIEW);
 
 
-	glMatrixMode(GL_MODELVIEW);
+	findView();
 	glLoadIdentity();
+	std::cout << "view found" << std::endl;
 
 	gluLookAt (6.0, 5.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
 	
-	//findView();
 
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-	animateHouse();
 
+	glPushMatrix();
+//	animateHouse();
 	if(IS_WIREFRAME == true){
+		
 		drawBaseHouse(&hbase[0], &hroof[0]);
 	}
 

@@ -2,6 +2,7 @@
 #define MOUSE
 
 #include "openGl.h"
+#include "prototypes.h"
 #include "globals.h"
 //#include "constants.h"
 #include <iostream>
@@ -39,7 +40,9 @@ void spinDisplay()
 	else if (Z_SPIN > 360)
 	{
 		Z_SPIN = Z_SPIN -360;
-	}		
+	}	
+
+	glutPostRedisplay();	
 }
 
 void mouse(int button, int state, int x, int y)
@@ -55,7 +58,7 @@ void mouse(int button, int state, int x, int y)
 			Y_SPIN ++;
 		else if(typeSpin == 3)
 			Z_SPIN++;
-		glutIdleFunc(spinDisplay);
+		glutIdleFunc(animateHouse);
 	}
 
 /*	else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
@@ -70,7 +73,7 @@ void mouse(int button, int state, int x, int y)
 		glutIdleFunc(spinDisplay);
 	}*/
 
-	glutPostRedisplay();	
+//	glutPostRedisplay();	
 }
 
 #endif

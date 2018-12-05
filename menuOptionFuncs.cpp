@@ -3,6 +3,8 @@
 
 #include "openGl.h"
 #include "structs.h"
+#include "prototypes.h"
+#include <stdio.h>
 
 void defineColors(base *shape, roof *trishape)
 {
@@ -41,13 +43,13 @@ void defineColors(base *shape, roof *trishape)
 
 
         trishape[2].myColor.red = 0.5;
-        trishape[2].myColor.green = 0.5;
-        trishape[2].myColor.blue = 0.5;
+        trishape[2].myColor.green = 1.0;
+        trishape[2].myColor.blue = 1.0;
 
 
         trishape[3].myColor.red = 0.5;
-        trishape[3].myColor.green = 0.5;
-        trishape[3].myColor.blue = 0.5;
+        trishape[3].myColor.green = 1.0;
+        trishape[3].myColor.blue = 1.0;
 
 }
 
@@ -114,6 +116,9 @@ void drawAxes(float length)
 	        glVertex3i(0.0, 0.0, -length);
         glEnd();
 
+	char charString[20];
+	sprintf(charString, "X-Axis", 0);
+	drawStringRaster(-length, 0.0, -1.0, GLUT_BITMAP_TIMES_ROMAN_10, charString);
 	glPopMatrix();
 }
 
