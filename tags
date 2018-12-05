@@ -1,0 +1,84 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AXES_DRAWN	constants.h	/^bool AXES_DRAWN = false;$/;"	v
+BUILDHOUSE	buildHouse.cpp	2;"	d	file:
+CONSTANTS	constants.h	2;"	d
+CUSTOM	menu.cpp	8;"	d	file:
+DISPLAY	display.cpp	2;"	d	file:
+DISPLAY_AXES	menu.cpp	12;"	d	file:
+EXIT	menu.cpp	14;"	d	file:
+FILLED	menu.cpp	10;"	d	file:
+GLOBALS	globals.h	2;"	d
+HELLO_WORLD	menu.cpp	13;"	d	file:
+IS_WIREFRAME	constants.h	/^bool IS_WIREFRAME = true;$/;"	v
+KEYBOARD	keyboard.cpp	2;"	d	file:
+MAIN	main.cpp	2;"	d	file:
+MENU	menu.cpp	4;"	d	file:
+MENU_OPTIONS	menuOptionFuncs.cpp	2;"	d	file:
+MOUSE	mouse.cpp	2;"	d	file:
+MYINIT	myInit.cpp	2;"	d	file:
+OPENGL	openGl.h	2;"	d
+ORTHO	menu.cpp	6;"	d	file:
+PERSPECTIVE	menu.cpp	7;"	d	file:
+PROTOTYPES	prototypes.h	2;"	d
+RESHAPE	reshape.cpp	2;"	d	file:
+STANDARD	menu.cpp	9;"	d	file:
+STRUCTS	structs.h	2;"	d
+TEXT	text.cpp	2;"	d	file:
+TYPE_VIEW	constants.h	/^int TYPE_VIEW = 1; \/\/1 is projection, 2 is ortho, 3 is custom$/;"	v
+VIEWPORT_MAX	constants.h	/^const int VIEWPORT_MAX = WINDOW_HEIGHT - 100;$/;"	v
+VIEWPORT_MIN	constants.h	/^const int VIEWPORT_MIN = 100;$/;"	v
+VIEWS	views.cpp	2;"	d	file:
+Vertex	structs.h	/^struct Vertex {$/;"	s
+WINDOW_HEIGHT	constants.h	/^const int WINDOW_HEIGHT = 500;$/;"	v
+WINDOW_WIDTH	constants.h	/^const int WINDOW_WIDTH = 500;$/;"	v
+WIREFRAME	menu.cpp	11;"	d	file:
+X_SPIN	constants.h	/^int X_SPIN = 0;$/;"	v
+Y_SPIN	constants.h	/^int Y_SPIN = 0;$/;"	v
+Z_SPIN	constants.h	/^int Z_SPIN = 0;$/;"	v
+animateHouse	display.cpp	/^void animateHouse()$/;"	f
+base	structs.h	/^struct base{$/;"	s
+blue	structs.h	/^        float blue;$/;"	m	struct:color
+color	structs.h	/^struct color{$/;"	s
+createMenu	menu.cpp	/^void createMenu(void)$/;"	f
+defineBaseHouse	buildHouse.cpp	/^void defineBaseHouse(base *box)$/;"	f
+defineColors	menuOptionFuncs.cpp	/^void defineColors(base *shape, roof *trishape)$/;"	f
+defineRoofHouse	buildHouse.cpp	/^void defineRoofHouse(roof *top)$/;"	f
+display	display.cpp	/^void display(void)$/;"	f
+drawAxes	menuOptionFuncs.cpp	/^void drawAxes(float length)$/;"	f
+drawBaseHouse	buildHouse.cpp	/^void drawBaseHouse(base *myBase, roof *myRoof)$/;"	f
+drawFilledInHouse	menuOptionFuncs.cpp	/^void drawFilledInHouse(base *shape, roof *trishape)$/;"	f
+drawStringRaster	text.cpp	/^void drawStringRaster(float x, float y, float z, void *font, const char *text)$/;"	f
+drawStringWindow	text.cpp	/^void drawStringWindow(int x, int y, void *font, const char *text)$/;"	f
+findView	views.cpp	/^void findView()$/;"	f
+green	structs.h	/^        float green;$/;"	m	struct:color
+main	main.cpp	/^int main(int argc, char** argv)$/;"	f
+mouse	mouse.cpp	/^void mouse(int button, int state, int x, int y)$/;"	f
+myColor	structs.h	/^	color myColor;$/;"	m	struct:base
+myColor	structs.h	/^	color myColor;$/;"	m	struct:roof
+myInit	myInit.cpp	/^void myInit(void)$/;"	f
+normalKeyboard	keyboard.cpp	/^void normalKeyboard(unsigned char key, int x, int y)$/;"	f
+processDisplayMenu	menu.cpp	/^void processDisplayMenu(int dchoice)$/;"	f
+processMainMenu	menu.cpp	/^void processMainMenu(int mchoice)$/;"	f
+processTextToScreenRaster	text.cpp	/^void processTextToScreenRaster(float x, float y, float z, const char *textFormat)$/;"	f
+processTextToScreenWindow	text.cpp	/^void processTextToScreenWindow(int x, int y, const char *textFormat)$/;"	f
+processViewMenu	menu.cpp	/^void processViewMenu(int vchoice)$/;"	f
+red	structs.h	/^        float red;$/;"	m	struct:color
+reshape	reshape.cpp	/^void reshape(int width, int height)$/;"	f
+roof	structs.h	/^struct roof{$/;"	s
+rotateArea	mouse.cpp	/^int rotateArea(int x, int y)$/;"	f
+specialKeyboard	keyboard.cpp	/^void specialKeyboard(int key, int x, int y)$/;"	f
+spinDisplay	mouse.cpp	/^void spinDisplay()$/;"	f
+vert	structs.h	/^	Vertex vert [3];$/;"	m	struct:roof
+vert	structs.h	/^	Vertex vert [4];$/;"	m	struct:base
+viewCustom	views.cpp	/^void viewCustom()$/;"	f
+viewOrtho	views.cpp	/^void viewOrtho()$/;"	f
+viewPerspective	views.cpp	/^void viewPerspective()$/;"	f
+w	structs.h	/^	float w;$/;"	m	struct:Vertex
+x	structs.h	/^	float x;$/;"	m	struct:Vertex
+y	structs.h	/^	float y;$/;"	m	struct:Vertex
+z	structs.h	/^	float z;$/;"	m	struct:Vertex

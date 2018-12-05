@@ -116,9 +116,9 @@ void drawAxes(float length)
 	        glVertex3i(0.0, 0.0, -length);
         glEnd();
 
-	char charString[20];
+/*	char charString[20];
 	sprintf(charString, "X-Axis", 0);
-	drawStringRaster(-length, 0.0, -1.0, GLUT_BITMAP_TIMES_ROMAN_10, charString);
+	drawStringRaster(-length, 0.0, -1.0, GLUT_BITMAP_TIMES_ROMAN_10, charString);*/
 	glPopMatrix();
 }
 

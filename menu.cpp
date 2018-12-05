@@ -87,6 +87,7 @@ void createMenu(void)
 	glutAddSubMenu("View Options", viewMenu);
 	glutAddMenuEntry("Exit Program", EXIT);
 
+	//works with middle when detach menu not there; but if not there it won't make the change until the menu is clicked again
 	glutAttachMenu(GLUT_RIGHT_BUTTON); //change to middle
 	glutDetachMenu(GLUT_MIDDLE_BUTTON); //change to middle
 }

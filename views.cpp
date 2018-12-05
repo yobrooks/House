@@ -2,6 +2,7 @@
 #define VIEWS
 
 #include "openGl.h"
+#include "globals.h"
 #include <iostream>
 #include <math.h>
 
@@ -11,6 +12,8 @@ void viewPerspective()
 	glLoadIdentity();
 	gluPerspective(67.4, 1.0, 1.5, 20.0);
 	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt (5.0, 7.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
 }
 
 
@@ -18,13 +21,16 @@ void viewOrtho()
 {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-1.0, 1.0, -1.0, 1.0, 1.5, 20.0);
+	glOrtho(-8.0, 8.0, -8.0, 8.0, 1.5, 20.0);
 	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+        gluLookAt (5.0, 7.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+
 }
 //take array as input 
 void viewCustom()
 {
-/*	float l, r, b, t, n, f;
+	float l, r, b, t, n, f;
 	std::cout << "Please enter the left parameter" << std::endl;
 	std::cin >> l;
 	
@@ -64,20 +70,27 @@ void viewCustom()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glLoadMatrixf(projMatrix);
-	glMatrixMode(GL_MODELVIEW);*/
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+        gluLookAt (5.0, 7.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+
 }
 
 //take array as input 
 void findView()
 {
-	int viewChoice;
-	switch(viewChoice)
-	{
-		case '1' : viewPerspective(); break;
-		
-		case '2' : viewOrtho(); break;
 
-		case '3' : viewCustom(); break;	
+	if(TYPE_VIEW == 1)
+	{
+		viewPerspective(); 
+	}
+	else if(TYPE_VIEW == 2)
+	{
+		viewOrtho(); 
+	}
+	else if(TYPE_VIEW == 3)
+	{
+		viewCustom(); 
 	}
 }
 

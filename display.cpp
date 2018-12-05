@@ -21,9 +21,6 @@ void animateHouse()
 
 void display(void)
 {
-	//draw viewport window 
-//	glClear(GL_COLOR_BUFFER_BIT);
-//	glColor3f(1.0, 1.0, 1.0);
 	
 	base hbase[6];
 	roof hroof[4];
@@ -38,17 +35,14 @@ void display(void)
 
 
 	findView();
-	glLoadIdentity();
-	std::cout << "view found" << std::endl;
 
-	gluLookAt (6.0, 5.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
-	
+	processTextToScreen(400, 400, 1.0, "Test");
 
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glPushMatrix();
-//	animateHouse();
+
 	if(IS_WIREFRAME == true){
 		
 		drawBaseHouse(&hbase[0], &hroof[0]);
