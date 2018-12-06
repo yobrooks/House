@@ -4,14 +4,45 @@
 #include <iostream>
 #include "openGl.h"
 #include "prototypes.h"
+#include "globals.h"
+
+void returnToStandard()
+{
+	X_DELTA = 0;
+	Y_DELTA = 0;
+	Z_DELTA = 0;
+	X_SPIN = 0;
+	Y_SPIN = 0;
+	Z_SPIN = 0;
+	CAMERA_DELTA = 0;
+	TYPE_VIEW = 1;
+}
+
+void reset()
+{
+	X_SPIN = 0;
+	Y_SPIN = 0;
+	Z_SPIN = 0;
+	X_DELTA = 0;
+	Y_DELTA = 0;
+	Z_DELTA = 0;
+//	CAMERA_DELTA = 0;
+}
+
+void stopAnimation()
+{
+	X_DELTA = 0;
+	Y_DELTA = 0;
+	Z_DELTA = 0;
+}
 
 void specialKeyboard(int key, int x, int y)
 {
 	switch(key)
 	{
-		case GLUT_KEY_PAGE_DOWN : std::cout << "move further" << std::endl;
+		case GLUT_KEY_PAGE_DOWN : CAMERA_DELTA ++;
 					  break;
-		case GLUT_KEY_PAGE_UP : std::cout << "move closer" << std::endl;
+		case GLUT_KEY_PAGE_UP : CAMERA_DELTA --;
 					 break;
 	}
 }
@@ -21,11 +52,11 @@ void normalKeyboard(unsigned char key, int x, int y)
 	switch(key)
 	{
 		case 'q' : exit(0);
-		case 's' : std::cout << "stop animation" << std::endl;
+		case 's' : stopAnimation();
 			   break;
-		case 'r' : std::cout << "return to original position adn size" << std::endl;
+		case 'r' : reset();
 			   break;
-		case 'R' : std::cout << "return to original position, size, and reset camera" << std:: endl;	
+		case 'R' : returnToStandard();
 			   break;
 	}
 }

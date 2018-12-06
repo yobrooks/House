@@ -4,7 +4,9 @@
 #include "openGl.h"
 #include "structs.h"
 #include "prototypes.h"
+#include "globals.h"
 #include <stdio.h>
+#include <string.h>
 
 void defineColors(base *shape, roof *trishape)
 {
@@ -60,6 +62,10 @@ void drawFilledInHouse(base *shape, roof *trishape)
 	
 	glPushMatrix();
 
+	glRotatef(X_SPIN, 1.0, 0.0, 0.0);
+        glRotatef(Y_SPIN, 0.0, 1.0, 0.0);
+        glRotatef(Z_SPIN, 0.0, 0.0, 1.0);
+
 	for(int i=0; i<6; i++)
 	{
 		glColor3f(shape[i].myColor.red, shape[i].myColor.green, shape[i].myColor.blue);
@@ -93,8 +99,14 @@ void drawFilledInHouse(base *shape, roof *trishape)
 
 void drawAxes(float length)
 {
+	int strnglngth;
+	char x [] = "X-Axis";
+	char y [] = "Y-Axis";
+	char z [] = "Z-Axis";
+
+	void *font = GLUT_STROKE_ROMAN;
+
 	glPointSize(1.0);
- //	glColor3f(1.0, 1.0, 1.0);
 	
 	glPushMatrix();
 
@@ -115,11 +127,49 @@ void drawAxes(float length)
      		glVertex3i(0.0, 0.0, length);
 	        glVertex3i(0.0, 0.0, -length);
         glEnd();
-
-/*	char charString[20];
-	sprintf(charString, "X-Axis", 0);
-	drawStringRaster(-length, 0.0, -1.0, GLUT_BITMAP_TIMES_ROMAN_10, charString);*/
 	glPopMatrix();
+
+	glColor3f(1.0, 0.0, 0.0);
+	glPushMatrix();
+	glTranslatef(4.0, 0.0, 0.2);
+        glRotatef(90.0, 0.0, 1.0, 1.0);
+        glRotatef(90.0, 0.0, 0.0, 1.0);
+        glScalef(0.003, 0.003, 0.003);
+        strnglngth = (int) strlen(x);
+        for(int i = 0; i < strnglngth; i++)
+        {
+                glutStrokeCharacter(font, x[i]);
+        }
+
+        glPopMatrix();
+
+	glColor3f(0.0, 1.0, 0.0);
+	glPushMatrix();
+        glTranslatef(0.0, 2.0, -0.8);
+        glRotatef(90.0, 0.0, 0.0, 1.0);
+        glRotatef(90.0, 1.0, 0.0, 0.0);
+        glScalef(0.003, 0.003, 0.003);
+        strnglngth = (int) strlen(y);
+        for(int i = 0; i < strnglngth; i++)
+        {
+                glutStrokeCharacter(font, y[i]);
+        }
+
+        glPopMatrix();
+
+	glColor3f(0.0, 0.0, 1.0);
+        glPushMatrix();
+        glTranslatef(-0.2, 0.2, 4);
+        glRotatef(90.0, 0.0, 0.0, 1.0);
+        glRotatef(90.0, 1.0, 0.0, 0.0);
+        glScalef(0.003, 0.003, 0.003);
+        strnglngth = (int) strlen(z);
+        for(int i = 0; i < strnglngth; i++)
+        {
+                glutStrokeCharacter(font, z[i]);
+        }
+        glPopMatrix();
+	
 }
 
 #endif

@@ -3,6 +3,7 @@
 
 #include "openGl.h"
 #include "structs.h"
+#include "prototypes.h"
 #include "globals.h"
 #include <vector>
 #include <iostream>
@@ -183,10 +184,12 @@ void drawBaseHouse(base *myBase, roof *myRoof)
 	
 
 	glPushMatrix();
+	
 	glRotatef(X_SPIN, 1.0, 0.0, 0.0);
         glRotatef(Y_SPIN, 0.0, 1.0, 0.0);
         glRotatef(Z_SPIN, 0.0, 0.0, 1.0);
-
+ 
+	glColor3f(1.0, 1.0, 1.0);
 	for(int i=0; i <6; i++)
 	{
 		glBegin(GL_POLYGON);
@@ -206,6 +209,7 @@ void drawBaseHouse(base *myBase, roof *myRoof)
 		}
 		glEnd();
 	}
+
 	
 	glPopMatrix();
 }

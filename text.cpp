@@ -3,6 +3,9 @@
 
 #include "openGl.h"
 #include <stdio.h>
+#include <string.h>
+#include "globals.h"
+
 void drawString(int x, int y, void *font, const char *text) {
 	const char *c;
 	glRasterPos2i(x, y);
@@ -18,5 +21,31 @@ void processTextToScreen(int x, int y, float number, const char *textFormat) {
 	drawString(x, y, GLUT_BITMAP_TIMES_ROMAN_24, charString);
 }
 
+
+void drawSign()
+{
+	char sign [] = "Hello World!";
+	int charLen; void *font = GLUT_STROKE_ROMAN;
+
+	if(IS_WIREFRAME == true)
+	{
+		glColor3f(1.0, 1.0, 1.0);
+	} else 
+		glColor3f(0.0, 0.0, 0.0);
+
+	glPushMatrix();
+        glTranslatef(0.0, 2.0, -0.8);
+        glRotatef(90.0, 0.0, 0.0, 1.0);
+  //      glRotatef(90.0, 1.0, 0.0, 0.0);
+        glScalef(0.003, 0.003, 0.003);
+        //charLen = (int) strlen(y);
+        for(int i = 0; i < charLen; i++)
+        {
+         //       glutStrokeCharacter(font, y[i]);
+        }
+
+	glPopMatrix();
+		
+}
 
 #endif

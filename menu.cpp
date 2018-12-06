@@ -14,6 +14,7 @@
 #define EXIT 9
 
 #include "openGl.h"
+#include "prototypes.h"
 #include "globals.h"
 //#include "constants.h"
 #include <iostream>
@@ -58,7 +59,7 @@ void processMainMenu(int mchoice)
 	switch (mchoice)
 	{
 		case STANDARD : 
-				 std::cout << "return to standard" << std::endl; break;	
+				 returnToStandard(); break;	
 
 		case EXIT : 
 				exit(0);
@@ -89,7 +90,7 @@ void createMenu(void)
 
 	//works with middle when detach menu not there; but if not there it won't make the change until the menu is clicked again
 	glutAttachMenu(GLUT_RIGHT_BUTTON); //change to middle
-	glutDetachMenu(GLUT_MIDDLE_BUTTON); //change to middle
+
 }
 
 

@@ -27,17 +27,21 @@ int rotateArea(int x, int y)
 
 void spinDisplay()
 {
+	X_SPIN = X_SPIN + X_DELTA;
+	Y_SPIN = Y_SPIN + Y_DELTA;
+	Z_SPIN = Z_SPIN + Z_DELTA;
+
 	if(X_SPIN > 360)
 	{
 		X_SPIN = X_SPIN -360;
 	}
 
-	else if (Y_SPIN > 360)
+	if (Y_SPIN > 360)
 	{
 		Y_SPIN = Y_SPIN -360;
 	}
 
-	else if (Z_SPIN > 360)
+	if (Z_SPIN > 360)
 	{
 		Z_SPIN = Z_SPIN -360;
 	}	
@@ -56,21 +60,17 @@ void mouse(int button, int state, int x, int y)
 	int typeSpin = 0;
 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		std::cout << "Left Butotn Pressed" << std::endl;
 		typeSpin = rotateArea(x, y);
-		std::cout << "typeSpin" << typeSpin << std::endl;
 		if(typeSpin == 1)
-			X_SPIN++;
+			X_DELTA += 0.8;
 		else if(typeSpin == 2)
-			Y_SPIN ++;
+			Y_DELTA += 0.8;
 		else if(typeSpin == 3)
-			Z_SPIN++;
-		std::cout << X_SPIN << Y_SPIN << Z_SPIN << std::endl;
+			Z_DELTA+= 0.8;
+		//std::cout << X_SPIN << Y_SPIN << Z_SPIN << std::endl;
 	}
 
-	glutIdleFunc(spinDisplay);
-
-/*	else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
+	/*else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
 	{
 		typeSpin = rotateArea(x, y);
 		if(typeSpin == 1)
@@ -82,7 +82,7 @@ void mouse(int button, int state, int x, int y)
 		glutIdleFunc(spinDisplay);
 	}*/
 
-//	glutPostRedisplay();	
+	glutIdleFunc(spinDisplay);	
 }
 
 #endif

@@ -13,7 +13,7 @@ void viewPerspective()
 	gluPerspective(67.4, 1.0, 1.5, 20.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	gluLookAt (5.0, 7.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+	gluLookAt (CAMERA_DELTA + 5.0, CAMERA_DELTA + 7.0, (CAMERA_DELTA/3) + 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
 }
 
 
@@ -21,10 +21,10 @@ void viewOrtho()
 {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-8.0, 8.0, -8.0, 8.0, 1.5, 20.0);
+	glOrtho(-10.0, 10.0, -10.0, 10.0, 1.5, 20.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-        gluLookAt (5.0, 7.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+        gluLookAt (CAMERA_DELTA + 5.0, CAMERA_DELTA+7.0, (CAMERA_DELTA*3) + 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
 
 }
 //take array as input 
@@ -72,8 +72,8 @@ void viewCustom()
 	glLoadMatrixf(projMatrix);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-        gluLookAt (5.0, 7.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
-
+        gluLookAt (CAMERA_DELTA +5.0, CAMERA_DELTA+7.0, (CAMERA_DELTA/3)+5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+	TYPE_VIEW = 4;
 }
 
 //take array as input 
@@ -90,7 +90,7 @@ void findView()
 	}
 	else if(TYPE_VIEW == 3)
 	{
-		viewCustom(); 
+		viewCustom();
 	}
 }
 
