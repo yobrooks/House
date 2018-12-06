@@ -16,6 +16,7 @@ float Z_SPIN = 0.0;
 float X_DELTA = 0.0;
 float Y_DELTA = 0.0;
 float Z_DELTA = 0.0;
-bool INITIALIZED = false;
+bool HOUSE_SIGN = false;
 int CAMERA_DELTA = 0;
+
 #endif

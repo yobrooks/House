@@ -210,7 +210,11 @@ void drawBaseHouse(base *myBase, roof *myRoof)
 		glEnd();
 	}
 
-	
+	if(HOUSE_SIGN == true)
+	{
+		drawSign();
+	}
+
 	glPopMatrix();
 }
 #endif

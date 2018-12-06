@@ -14,6 +14,7 @@ void createMenu(void);
 void returnToStandard();
 void stopAnimation();
 void reset();
+void drawViewText(char []);
 void defineColors(struct base*, struct roof*);
 void drawFilledInHouse(struct base*, struct roof*);
 void drawString(int , int , void *, const char *);

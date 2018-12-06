@@ -2,6 +2,7 @@
 #define VIEWS
 
 #include "openGl.h"
+#include "prototypes.h"
 #include "globals.h"
 #include <iostream>
 #include <math.h>
@@ -14,6 +15,7 @@ void viewPerspective()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt (CAMERA_DELTA + 5.0, CAMERA_DELTA + 7.0, (CAMERA_DELTA/3) + 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+//	drawViewText("Perspective");
 }
 
 
@@ -49,27 +51,10 @@ void viewCustom()
 	std::cout << "Please enter the far parameter" << std::endl;
         std::cin >> f;
 
-	float projMatrix [16];
-	*(projMatrix + 0) = (2 * fabs(n))/(r-l);
-	*(projMatrix + 1) = 0;
-	*(projMatrix + 2) = 0;
-	*(projMatrix + 3) = 0;
-	*(projMatrix + 4) = 0;
-	*(projMatrix + 5) = (2 * fabs(n))/(t-b);
-	*(projMatrix + 6) = 0;
-	*(projMatrix + 7) = 0;
-	*(projMatrix + 8) = (r+l)/(r-l);
-	*(projMatrix + 9) = (t+b)/(t-b);
-	*(projMatrix + 10) = (fabs(n) + fabs(f))/(fabs(n) - fabs(f));
-	*(projMatrix + 11) = -1;
-	*(projMatrix + 12) = 0;
-	*(projMatrix + 13) = 0;
-	*(projMatrix + 14) = (2 * fabs(n) * fabs(f))/(fabs(n) - fabs(f));
-	*(projMatrix + 15) = 0;
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glLoadMatrixf(projMatrix);
+	glFrustum(l, r, b, t, n, f);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
         gluLookAt (CAMERA_DELTA +5.0, CAMERA_DELTA+7.0, (CAMERA_DELTA/3)+5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
@@ -83,15 +68,19 @@ void findView()
 	if(TYPE_VIEW == 1)
 	{
 		viewPerspective(); 
+		drawViewText("Perspective");
 	}
 	else if(TYPE_VIEW == 2)
 	{
-		viewOrtho(); 
+		viewOrtho();
+		drawViewText("Orthographic"); 
 	}
 	else if(TYPE_VIEW == 3)
 	{
 		viewCustom();
+		drawViewText("Custom");
 	}
+
 }
 
 #endif

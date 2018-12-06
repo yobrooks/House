@@ -47,9 +47,6 @@ void spinDisplay()
 		Z_SPIN = Z_SPIN -360;
 	}	
 
-	std::cout << "X" << X_SPIN << std::endl;
-	std::cout << "Y" << Y_SPIN << std::endl;
-	std::cout << "Z" << Z_DELTA << std::endl;
 	glutPostRedisplay();
 }
 

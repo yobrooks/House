@@ -52,7 +52,7 @@ void processDisplayMenu(int dchoice)
 				  AXES_DRAWN = false; break;
 
 		case HELLO_WORLD: 
-				 std::cout << "Hello world sign" << std::endl; break;
+				 HOUSE_SIGN = true;  break;
 	} glutPostRedisplay();
 }
 

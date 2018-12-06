@@ -16,7 +16,7 @@ extern float Z_SPIN;
 extern float X_DELTA;
 extern float Y_DELTA;
 extern float Z_DELTA; 
-extern bool INITIALIZED;
+extern bool HOUSE_SIGN;
 extern int CAMERA_DELTA;
 #endif
 // use extern here -- then we include this header in each code piece that
