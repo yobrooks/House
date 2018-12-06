@@ -17,7 +17,6 @@
 #include "openGl.h"
 #include "prototypes.h"
 #include "globals.h"
-//#include "constants.h"
 #include <iostream>
 
 void processViewMenu(int vchoice)
@@ -54,7 +53,7 @@ void processDisplayMenu(int dchoice)
 
 		case HELLO_WORLD: 
 				 std::cout << "Hello world sign" << std::endl; break;
-	}
+	} glutPostRedisplay();
 }
 
 void processMainMenu(int mchoice)
@@ -67,6 +66,7 @@ void processMainMenu(int mchoice)
 		case EXIT : 
 				exit(0);
 	}
+	glutPostRedisplay();
 }
 
 //DRAWS SHAPE OVER AND OVER WHEN INTERACTING WITH MENU
@@ -93,7 +93,7 @@ void createMenu(void)
 	glutAddMenuEntry("Exit Program", EXIT);
 
 	//works with middle when detach menu not there; but if not there it won't make the change until the menu is clicked again
-	glutAttachMenu(GLUT_RIGHT_BUTTON); //change to middle
+	glutAttachMenu(GLUT_MIDDLE_BUTTON); //change to middle
 
 }
 

@@ -47,6 +47,9 @@ void spinDisplay()
 		Z_SPIN = Z_SPIN -360;
 	}	
 
+	std::cout << "X" << X_SPIN << std::endl;
+	std::cout << "Y" << Y_SPIN << std::endl;
+	std::cout << "Z" << Z_DELTA << std::endl;
 	glutPostRedisplay();
 }
 
@@ -57,27 +60,24 @@ void mouse(int button, int state, int x, int y)
 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
 		typeSpin = rotateArea(x, y);
-		std::cout << typeSpin << std::endl;
-		if(typeSpin == 1){
-			X_DELTA += 0.8;
-			std::cout << "X SPIN " << std::endl;
-		}
+		if(typeSpin == 1)
+			X_DELTA = X_DELTA + 0.005;
 		else if(typeSpin == 2)
-			Y_DELTA += 0.8;
+			Y_DELTA = Y_DELTA + 0.005;
 		else if(typeSpin == 3)
-			Z_DELTA+= 0.8;
+			Z_DELTA = Z_DELTA + 0.005;
 	}
 
-	/*else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
+	else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
 	{
 		typeSpin = rotateArea(x, y);
 		if(typeSpin == 1)
-			X_DELTA-=0.8;
+			X_DELTA = X_DELTA - 0.005;
 		else if(typeSpin == 2)
-			Y_DELTA-=0.8;
+			Y_DELTA = Y_DELTA - 0.005;
 		else if(typeSpin == 3)
-			Z_DELTA-=0.8;
-	}*/
+			Z_DELTA = Z_DELTA - 0.005;
+	}
 
 	glutIdleFunc(spinDisplay);	
 }
