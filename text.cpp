@@ -2,8 +2,8 @@
 #define TEXT
 
 #include "openGl.h"
-
-void drawString(float x, float y, void *font, const char *text) {
+#include <stdio.h>
+void drawString(int x, int y, void *font, const char *text) {
 	const char *c;
 	glRasterPos2i(x, y);
 	for(c=text; *c!='\0'; c++) {

@@ -10,14 +10,6 @@
 #include <iostream>
 
 
-void animateHouse()
-{
-	glPushMatrix();
-	glTranslatef(0.0, 0.0, 0.0);
-	glRotatef(Z_SPIN, 0.0, 0.0, 1.0);
-	glRotatef(X_SPIN, 1.0, 0.0, 0.0);
-	glRotatef(Y_SPIN, 0.0, 1.0, 0.0);
-}
 
 void display(void)
 {
@@ -36,12 +28,11 @@ void display(void)
 
 	findView();
 
-	processTextToScreen(400, 400, 1.0, "Test");
 
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glPushMatrix();
+	//glPushMatrix();
+	
 
 	if(IS_WIREFRAME == true){
 		
@@ -52,7 +43,7 @@ void display(void)
 		drawFilledInHouse(&hbase[0], &hroof[0]);
 	}
 
-	glPopMatrix();
+//	glPopMatrix();
 
 	if(AXES_DRAWN == true)
 	{
@@ -60,6 +51,8 @@ void display(void)
 	}
 
 	glFlush();	
+
+
 }
 
 #endif

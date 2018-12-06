@@ -42,7 +42,12 @@ void spinDisplay()
 		Z_SPIN = Z_SPIN -360;
 	}	
 
-	glutPostRedisplay();	
+	glutPostRedisplay();
+}
+
+void animateHouse()
+{
+
 }
 
 void mouse(int button, int state, int x, int y)
@@ -51,15 +56,19 @@ void mouse(int button, int state, int x, int y)
 	int typeSpin = 0;
 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
+		std::cout << "Left Butotn Pressed" << std::endl;
 		typeSpin = rotateArea(x, y);
+		std::cout << "typeSpin" << typeSpin << std::endl;
 		if(typeSpin == 1)
 			X_SPIN++;
 		else if(typeSpin == 2)
 			Y_SPIN ++;
 		else if(typeSpin == 3)
 			Z_SPIN++;
-		glutIdleFunc(animateHouse);
+		std::cout << X_SPIN << Y_SPIN << Z_SPIN << std::endl;
 	}
+
+	glutIdleFunc(spinDisplay);
 
 /*	else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
 	{
