@@ -12,6 +12,7 @@
 #define DISPLAY_AXES 7
 #define HELLO_WORLD 8
 #define EXIT 9
+#define OFF_AXES 10
 
 #include "openGl.h"
 #include "prototypes.h"
@@ -48,6 +49,8 @@ void processDisplayMenu(int dchoice)
 	
 		case DISPLAY_AXES:
 				  AXES_DRAWN = true; break;
+		case OFF_AXES : 
+				  AXES_DRAWN = false; break;
 
 		case HELLO_WORLD: 
 				 std::cout << "Hello world sign" << std::endl; break;
@@ -79,7 +82,8 @@ void createMenu(void)
 	displayMenu = glutCreateMenu(processDisplayMenu);
 	glutAddMenuEntry("Filled In Shape", FILLED);
 	glutAddMenuEntry("Wire Frame Shape", WIREFRAME);
-	glutAddMenuEntry("Show Axes", DISPLAY_AXES);
+	glutAddMenuEntry("Turn Axes On", DISPLAY_AXES);
+	glutAddMenuEntry("Turn Axes Off", OFF_AXES);
 	glutAddMenuEntry("Hello World Sign", HELLO_WORLD);
 
 	mainMenu = glutCreateMenu(processMainMenu);
