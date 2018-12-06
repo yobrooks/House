@@ -20,7 +20,6 @@ void drawString(int , int , void *, const char *);
 void drawSign();
 void processTextToSreen(int , int , float , const char *);
 void drawAxes(float );
-void animateHouse();
 void spinDisplay();
 int rotateArea(int x, int y);
 void findView();

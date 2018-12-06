@@ -9,17 +9,18 @@
 
 int rotateArea(int x, int y)
 {
-	if(x >= 0 && x <=(WINDOW_WIDTH/2) && y >= 0 && y <= (WINDOW_HEIGHT/2))
+	if((x > y && x < (WINDOW_WIDTH/2) && y < (WINDOW_HEIGHT/2)) ||
+	     ((-1)*x + WINDOW_WIDTH > y && y < (WINDOW_HEIGHT/2) && x > (WINDOW_WIDTH/2)))
 	{
 		return 3;
 	}
 	
-	else if(x > 0 && x < (WINDOW_WIDTH/2) && y > 0 && y < WINDOW_HEIGHT)
+	else if(x < y && x < (WINDOW_WIDTH/2)  && y > (WINDOW_HEIGHT/2))
 	{
 		return 2;
 	}
 
-	else if(x > (WINDOW_WIDTH/2) && x < WINDOW_WIDTH && y > 0 && y < WINDOW_HEIGHT)
+	else if(x > (WINDOW_WIDTH/2) && y > (WINDOW_HEIGHT/2) && ((-1)*x + WINDOW_WIDTH) < y)
 	{
 		return 1;
 	}	
@@ -49,11 +50,6 @@ void spinDisplay()
 	glutPostRedisplay();
 }
 
-void animateHouse()
-{
-
-}
-
 void mouse(int button, int state, int x, int y)
 {
 	y = WINDOW_HEIGHT - y;
@@ -61,25 +57,26 @@ void mouse(int button, int state, int x, int y)
 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
 		typeSpin = rotateArea(x, y);
-		if(typeSpin == 1)
+		std::cout << typeSpin << std::endl;
+		if(typeSpin == 1){
 			X_DELTA += 0.8;
+			std::cout << "X SPIN " << std::endl;
+		}
 		else if(typeSpin == 2)
 			Y_DELTA += 0.8;
 		else if(typeSpin == 3)
 			Z_DELTA+= 0.8;
-		//std::cout << X_SPIN << Y_SPIN << Z_SPIN << std::endl;
 	}
 
 	/*else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
 	{
 		typeSpin = rotateArea(x, y);
 		if(typeSpin == 1)
-			X_SPIN --;
+			X_DELTA-=0.8;
 		else if(typeSpin == 2)
-			Y_SPIN --;
+			Y_DELTA-=0.8;
 		else if(typeSpin == 3)
-			Z_SPIN --;
-		glutIdleFunc(spinDisplay);
+			Z_DELTA-=0.8;
 	}*/
 
 	glutIdleFunc(spinDisplay);	
