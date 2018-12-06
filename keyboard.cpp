@@ -26,7 +26,6 @@ void reset()
 	X_DELTA = 0;
 	Y_DELTA = 0;
 	Z_DELTA = 0;
-//	CAMERA_DELTA = 0;
 }
 
 void stopAnimation()
@@ -45,6 +44,8 @@ void specialKeyboard(int key, int x, int y)
 		case GLUT_KEY_PAGE_UP : CAMERA_DELTA --;
 					 break;
 	}
+
+	glutPostRedisplay();
 }
 
 void normalKeyboard(unsigned char key, int x, int y)
