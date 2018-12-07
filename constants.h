@@ -3,6 +3,7 @@
 
 #include "structs.h"
 
+//supposed to be just constants but ended up initializing all global variables here
 const int WINDOW_HEIGHT = 500;
 const int WINDOW_WIDTH = 500;
 const int VIEWPORT_MIN = 100;

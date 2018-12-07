@@ -4,9 +4,9 @@
 #include "openGl.h"
 #include "prototypes.h"
 #include "globals.h"
-//#include "constants.h"
 #include <iostream>
 
+//determine which area was clicked to see which axis to rotate about
 int rotateArea(int x, int y)
 {
 	if((x > y && x < (WINDOW_WIDTH/2) && y < (WINDOW_HEIGHT/2)) ||
@@ -26,6 +26,8 @@ int rotateArea(int x, int y)
 	}	
 }
 
+//increase SPIN by DELTA SPIN
+//make sure SPIN does pass 360
 void spinDisplay()
 {
 	X_SPIN = X_SPIN + X_DELTA;
@@ -50,10 +52,13 @@ void spinDisplay()
 	glutPostRedisplay();
 }
 
+//function for the mouse commands
 void mouse(int button, int state, int x, int y)
 {
-	y = WINDOW_HEIGHT - y;
+	y = WINDOW_HEIGHT - y; //change from mouse coordinates to screen coordinates
 	int typeSpin = 0;
+	//if left mouse is clicked, determine which axis to rotate about, 
+	//increment DELTA SPIN for that axis
 	if(button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
 		typeSpin = rotateArea(x, y);
@@ -65,6 +70,7 @@ void mouse(int button, int state, int x, int y)
 			Z_DELTA = Z_DELTA + 0.005;
 	}
 
+	//same for right button, just decreasing DELTA SPIN
 	else if(button == GLUT_RIGHT_BUTTON && state ==GLUT_DOWN)
 	{
 		typeSpin = rotateArea(x, y);

@@ -1,7 +1,12 @@
+#  Yasmine Brooks      #
+#  Dr.Pounds           #
+#  December 6, 2018    #
+#  Project 3 Makefile  #
+
 CXX = g++
 LDLIBS =  -lglut -lGL -lGLU -lm
 HEADERS = openGl.h structs.h globals.h constants.h prototypes.h
-OBJS = myInit.o buildHouse.o reshape.o views.o menuOptionFuncs.o menu.o text.o keyboard.o mouse.o display.o  
+OBJS = myInit.o buildHouse.o views.o menuOptionFuncs.o menu.o text.o keyboard.o mouse.o display.o  
 
 debug ?= n
 ifeq ($(debug), y)
@@ -24,9 +29,6 @@ myInit.o : myInit.cpp $(HEADERS)
 
 buildHouse.o : buildHouse.cpp $(HEADERS)
 	$(CXX) $(CFLAGS) buildHouse.cpp -c
-
-reshape.o : reshape.cpp $(HEADERS)
-	$(CXX) $(CFLAGS) reshape.cpp -c
 
 views.o : views.cpp $(HEADERS)
 	$(CXX) $(CFLAGS) views.cpp -c

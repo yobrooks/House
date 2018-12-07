@@ -8,11 +8,13 @@
 #include <vector>
 #include <iostream>
 
+
+//*code modeled after Dr. Pounds perspective class example*//
+//define the vertices of the house
 void defineBaseHouse(base *box)
 {
 	
-	//define the front box
-	//ACTUALLY DREW TOP
+	//define the top box
 	box[0].vert[0].x = -1.0;
 	box[0].vert[0].y = -1.0;
 	box[0].vert[0].z = 2.0;
@@ -30,8 +32,7 @@ void defineBaseHouse(base *box)
         box[0].vert[3].z = 2.0;
         box[0].vert[3].w = 1.0;
 
-	//define the back side
-	//ACTUALLY DREW BOTTOM
+	//define the bottom side
 	box[1].vert[0].x = -1.0;
 	box[1].vert[0].y = -1.0;
 	box[1].vert[0].z = 0.0;
@@ -49,8 +50,7 @@ void defineBaseHouse(base *box)
         box[1].vert[3].z = 0.0;
         box[1].vert[3].w = 1.0;
 
-	//define the right side
-	//ACTUALLY DREW FRONT
+	//define the front side
 	box[2].vert[0].x = 1.0;
         box[2].vert[0].y = -1.0;
         box[2].vert[0].z = 2.0;
@@ -68,8 +68,7 @@ void defineBaseHouse(base *box)
         box[2].vert[3].z = 0.0;
         box[2].vert[3].w = 1.0;
 
-	//define the left side
-	//ACTUALLY DREW BACK
+	//define the back side
 	box[3].vert[0].x = -1.0;
         box[3].vert[0].y = -1.0;
         box[3].vert[0].z = 0.0;
@@ -87,7 +86,7 @@ void defineBaseHouse(base *box)
         box[3].vert[3].z = 2.0;
         box[3].vert[3].w = 1.0;
 
-	//define the top face
+	//define left and right sides
 	box[4].vert[0].x = -1.0;
         box[4].vert[0].y = 1.0;
         box[4].vert[0].z = 2.0;
@@ -123,6 +122,7 @@ void defineBaseHouse(base *box)
         box[5].vert[3].w = 1.0;	
 }
 
+//define the vertices of the roof of the house
 void defineRoofHouse(roof *top)
 {
 	top[0].vert[0].x = 0.0;
@@ -176,20 +176,22 @@ void defineRoofHouse(roof *top)
         top[3].vert[2].y = 1.0;
         top[3].vert[2].z = 2.0;
         top[3].vert[2].w = 1.0;
-
 }
+
+//draw the house
 void drawBaseHouse(base *myBase, roof *myRoof)
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	
 
 	glPushMatrix();
 	
+	//transformations to make the house rotate
 	glRotatef(X_SPIN, 1.0, 0.0, 0.0);
         glRotatef(Y_SPIN, 0.0, 1.0, 0.0);
         glRotatef(Z_SPIN, 0.0, 0.0, 1.0);
  
 	glColor3f(1.0, 1.0, 1.0);
+	//draw the base house
 	for(int i=0; i <6; i++)
 	{
 		glBegin(GL_POLYGON);
@@ -200,6 +202,7 @@ void drawBaseHouse(base *myBase, roof *myRoof)
 		glEnd();
 	}
 
+	//draw the roof house
 	for(int i = 0; i < 4; i++)
 	{
 		glBegin(GL_TRIANGLES);
@@ -209,12 +212,18 @@ void drawBaseHouse(base *myBase, roof *myRoof)
 		}
 		glEnd();
 	}
-
+ 
+	//draw the house sign if toggled
 	if(HOUSE_SIGN == true)
 	{
 		drawSign();
 	}
 
 	glPopMatrix();
+
+	//decide the current  view and draw it
+	decideViewText();
+	
+
 }
 #endif

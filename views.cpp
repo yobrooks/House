@@ -7,6 +7,7 @@
 #include <iostream>
 #include <math.h>
 
+//sets up perspective view
 void viewPerspective()
 {
 	glMatrixMode(GL_PROJECTION);
@@ -15,10 +16,10 @@ void viewPerspective()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	gluLookAt (CAMERA_DELTA + 5.0, CAMERA_DELTA + 7.0, (CAMERA_DELTA/3) + 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
-//	drawViewText("Perspective");
+
 }
 
-
+//sets up orthographic view
 void viewOrtho()
 {
 	glMatrixMode(GL_PROJECTION);
@@ -29,9 +30,11 @@ void viewOrtho()
         gluLookAt (CAMERA_DELTA + 5.0, CAMERA_DELTA+7.0, (CAMERA_DELTA*3) + 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
 
 }
-//take array as input 
+
+//sets up custom view
 void viewCustom()
 {
+	//series of prompts asked to get parameter input from user on command line
 	float l, r, b, t, n, f;
 	std::cout << "Please enter the left parameter" << std::endl;
 	std::cin >> l;
@@ -54,31 +57,29 @@ void viewCustom()
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glFrustum(l, r, b, t, n, f);
-	glMatrixMode(GL_MODELVIEW);
+	glFrustum(l, r, b, t, n, f); //sets up view based on parameters with frustum
+	glMatrixMode(GL_MODELVIEW); 
 	glLoadIdentity();
         gluLookAt (CAMERA_DELTA +5.0, CAMERA_DELTA+7.0, (CAMERA_DELTA/3)+5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
-	TYPE_VIEW = 4;
+	TYPE_VIEW = 4; //sets the type of view variable to 4 so it won't
+			// keep prompting the user for input
 }
 
-//take array as input 
+//find the view that you are in when changed
 void findView()
 {
 
 	if(TYPE_VIEW == 1)
 	{
 		viewPerspective(); 
-		drawViewText("Perspective");
 	}
 	else if(TYPE_VIEW == 2)
 	{
 		viewOrtho();
-		drawViewText("Orthographic"); 
 	}
 	else if(TYPE_VIEW == 3)
 	{
 		viewCustom();
-		drawViewText("Custom");
 	}
 
 }

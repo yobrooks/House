@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 
+//define the colors of each side of the house
+//modeled after Dr.Pounds perspective class example
 void defineColors(base *shape, roof *trishape)
 {
 	shape[0].myColor.red = 0.0;
@@ -55,6 +57,7 @@ void defineColors(base *shape, roof *trishape)
 
 }
 
+//draw the house with colors on it
 void drawFilledInHouse(base *shape, roof *trishape)
 {
 
@@ -92,11 +95,19 @@ void drawFilledInHouse(base *shape, roof *trishape)
                  glEnd();
 
 	}
+
+	//draw the house sign if toggled
+	if(HOUSE_SIGN == true){
+		drawSign();
+	}
+
+	//decide which view the text needs to draw
+	decideViewText();
 	
 	glPopMatrix();
 }
 
-
+//modeled after Dr. Pounds menuexample and perspective class examples
 void drawAxes(float length)
 {
 	int strnglngth;
@@ -109,6 +120,7 @@ void drawAxes(float length)
 	glPointSize(1.0);
 	
 	glPushMatrix();
+	//draw the actual axes
 
 	glColor3f(1.0, 0.0, 0.0);
   	glBegin(GL_LINES); //x axis
@@ -129,6 +141,7 @@ void drawAxes(float length)
         glEnd();
 	glPopMatrix();
 
+	//draw "X-AXis" label
 	glColor3f(1.0, 0.0, 0.0);
 	glPushMatrix();
 	glTranslatef(4.0, 0.0, 0.2);
@@ -143,6 +156,7 @@ void drawAxes(float length)
 
         glPopMatrix();
 
+	//draw "Y-axis" label
 	glColor3f(0.0, 1.0, 0.0);
 	glPushMatrix();
         glTranslatef(0.0, 2.0, -0.8);
@@ -157,6 +171,7 @@ void drawAxes(float length)
 
         glPopMatrix();
 
+	//draw "Z axis" label
 	glColor3f(0.0, 0.0, 1.0);
         glPushMatrix();
         glTranslatef(-0.2, 0.2, 4);

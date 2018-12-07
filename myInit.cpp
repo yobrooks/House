@@ -3,7 +3,6 @@
 
 #include "openGl.h"
 #include "globals.h"
-//#include "constants.h"
 
 void myInit(void)
 {

@@ -3,6 +3,7 @@
 #ifndef MENU
 #define MENU
 
+//definitions of variables/id for each menu item
 #define ORTHO 1
 #define PERSPECTIVE 2
 #define CUSTOM 3
@@ -13,12 +14,15 @@
 #define HELLO_WORLD 8
 #define EXIT 9
 #define OFF_AXES 10
+#define OFF_SIGN 11
+
 
 #include "openGl.h"
 #include "prototypes.h"
 #include "globals.h"
 #include <iostream>
 
+//process view submenu options
 void processViewMenu(int vchoice)
 {
 	switch (vchoice) 
@@ -36,6 +40,7 @@ void processViewMenu(int vchoice)
 	glutPostRedisplay();			
 }
 
+//process display submenu options
 void processDisplayMenu(int dchoice)
 {
 	switch (dchoice)
@@ -53,9 +58,11 @@ void processDisplayMenu(int dchoice)
 
 		case HELLO_WORLD: 
 				 HOUSE_SIGN = true;  break;
+		case OFF_SIGN:    HOUSE_SIGN = false; break;
 	} glutPostRedisplay();
 }
 
+//process the main menu
 void processMainMenu(int mchoice)
 {
 	switch (mchoice)
@@ -69,7 +76,7 @@ void processMainMenu(int mchoice)
 	glutPostRedisplay();
 }
 
-//DRAWS SHAPE OVER AND OVER WHEN INTERACTING WITH MENU
+//create menu with all the options and submenus
 void createMenu(void)
 {
 	int mainMenu, displayMenu, viewMenu;
@@ -84,7 +91,8 @@ void createMenu(void)
 	glutAddMenuEntry("Wire Frame Shape", WIREFRAME);
 	glutAddMenuEntry("Turn Axes On", DISPLAY_AXES);
 	glutAddMenuEntry("Turn Axes Off", OFF_AXES);
-	glutAddMenuEntry("Hello World Sign", HELLO_WORLD);
+	glutAddMenuEntry("Hello World Sign On", HELLO_WORLD);
+	glutAddMenuEntry("Hello World Sign Off", OFF_SIGN);
 
 	mainMenu = glutCreateMenu(processMainMenu);
 	glutAddSubMenu("Display Options", displayMenu);
@@ -92,8 +100,7 @@ void createMenu(void)
 	glutAddSubMenu("View Options", viewMenu);
 	glutAddMenuEntry("Exit Program", EXIT);
 
-	//works with middle when detach menu not there; but if not there it won't make the change until the menu is clicked again
-	glutAttachMenu(GLUT_MIDDLE_BUTTON); //change to middle
+	glutAttachMenu(GLUT_MIDDLE_BUTTON); 
 
 }
 
